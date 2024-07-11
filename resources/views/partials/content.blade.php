@@ -1,15 +1,19 @@
-<article @php(post_class())>
-  <header>
+<article id="page-content" @postclass>
+  <div class="header" role="heading">
+    @if(has_post_thumbnail())
+      <img src="@thumbnail('header-pages', false)" alt="@title" role="presentation">
+    @else
+      <img src="{{ get_field('default_thumbnail', 'option')['sizes']['header-pages'] }}" alt="@title"
+           role="presentation">
+    @endif
     <h2 class="entry-title">
-      <a href="{{ get_permalink() }}">
-        {!! $title !!}
+      <a href="@permalink">
+        @title
       </a>
     </h2>
+  </div>
 
-    @include('partials.entry-meta')
-  </header>
-
-  <div class="entry-summary">
-    @php(the_excerpt())
+  <div class="entry-content">
+    @content
   </div>
 </article>

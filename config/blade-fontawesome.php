@@ -8,7 +8,7 @@ return [
 
         'fallback' => '',
 
-        'class' => '',
+        'class' => 'inline-block h-[1em] align-[-0.125em]',
 
         'attributes' => [
             // 'width' => 50,
@@ -23,7 +23,7 @@ return [
 
         'fallback' => '',
 
-        'class' => '',
+        'class' => 'inline-block h-[1em] align-[-0.125em]',
 
         'attributes' => [
             // 'width' => 50,
@@ -38,7 +38,7 @@ return [
 
         'fallback' => '',
 
-        'class' => '',
+        'class' => 'inline-block h-[1em] align-[-0.125em]',
 
         'attributes' => [
             // 'width' => 50,
@@ -65,7 +65,7 @@ return [
 
         'fallback' => '',
 
-        'class' => '',
+        'class' => 'inline-block h-[1em] align-[-0.125em]',
 
         'attributes' => [
             // 'width' => 50,
@@ -80,7 +80,7 @@ return [
 
         'fallback' => '',
 
-        'class' => '',
+        'class' => 'inline-block h-[1em] align-[-0.125em]',
 
         'attributes' => [
             // 'width' => 50,
@@ -95,7 +95,7 @@ return [
 
         'fallback' => '',
 
-        'class' => '',
+        'class' => 'inline-block h-[1em] align-[-0.125em]',
 
         'attributes' => [
             // 'width' => 50,
@@ -110,7 +110,7 @@ return [
 
         'fallback' => '',
 
-        'class' => '',
+        'class' => 'inline-block h-[1em] align-[-0.125em]',
 
         'attributes' => [
             // 'width' => 50,
@@ -125,7 +125,7 @@ return [
 
         'fallback' => '',
 
-        'class' => '',
+        'class' => 'inline-block h-[1em] align-[-0.125em]',
 
         'attributes' => [
             // 'width' => 50,
@@ -140,7 +140,7 @@ return [
 
         'fallback' => '',
 
-        'class' => '',
+        'class' => 'inline-block h-[1em] align-[-0.125em]',
 
         'attributes' => [
             // 'width' => 50,
@@ -155,7 +155,7 @@ return [
 
         'fallback' => '',
 
-        'class' => '',
+        'class' => 'inline-block h-[1em] align-[-0.125em]',
 
         'attributes' => [
             // 'width' => 50,
@@ -182,7 +182,7 @@ return [
 
         'fallback' => '',
 
-        'class' => '',
+        'class' => 'inline-block h-[1em] align-[-0.125em]',
 
         'attributes' => [
             // 'width' => 50,

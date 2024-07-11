@@ -19,8 +19,14 @@
     "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang"
   },
   "devDependencies": {
-    "@roots/bud": "6.20.0",
-    "@roots/bud-tailwindcss": "6.20.0",
-    "@roots/sage": "6.20.0"
+    "@roots/bud": "6.23.2",
+    "@roots/bud-tailwindcss": "6.23.2",
+    "@roots/sage": "6.23.2",
+    "@tailwindcss/typography": "^0.5.14"
+  },
+  "dependencies": {
+    "@awesome.me/kit-75c104940c": "^1.0.34",
+    "@fortawesome/fontawesome-pro": "^6.6.0",
+    "tiny-slider": "^2.9.4"
   }
 }

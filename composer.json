@@ -43,21 +43,24 @@
     "blade-ui-kit/blade-icons": "^1.6",
     "log1x/acf-composer": "^3.0",
     "log1x/acf-phone-number": "^1.2",
+    "log1x/acorn-disable-media-pages": "^1.0",
     "log1x/navi": "^3.0",
+    "log1x/pagi": "^1.1",
     "log1x/poet": "^2.1",
     "log1x/sage-directives": "^2.0",
     "owenvoke/blade-fontawesome": "^2.6",
     "roots/acorn": "^4.3",
     "roots/acorn-prettify": "^1.0",
+    "wordpress-premium/advanced-custom-fields-pro": "^6.3",
     "wpackagist-plugin/acf-openstreetmap-field": "^1.5",
-    "wpackagist-plugin/advanced-custom-fields": "^6.3",
     "wpackagist-plugin/advanced-custom-fields-font-awesome": "^4.0",
     "wpackagist-plugin/cms-tree-page-view": "^1.6",
+    "wpackagist-plugin/google-sitemap-generator": "^4.1",
     "wpackagist-plugin/navz-photo-gallery": "^3.0",
     "wpackagist-plugin/post-types-order": "^2.2"
   },
   "require-dev": {
-    "laravel/pint": "^1.13"
+    "laravel/pint": "^1.16"
   },
   "suggest": {
     "log1x/sage-directives": "A collection of useful Blade directives for WordPress and Sage (^1.0)."

@@ -44,9 +44,9 @@ add_action('after_setup_theme', function () {
      *
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
-    register_nav_menus([
+    /*register_nav_menus([
         'primary_navigation' => __('Primary Navigation', 'sage'),
-    ]);
+    ]);*/
 
     /**
      * Disable the default block patterns.
@@ -68,6 +68,18 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
      */
     add_theme_support('post-thumbnails');
+    /* Tamaños de imágenes */
+    add_image_size('slide-home', 1536, 680, true);
+    add_image_size('relevant-home', 300, 200, true);
+    add_image_size('button-home', 380, 190, true);
+    add_image_size('event-home', 480, 640, true);
+    add_image_size('header-pages', 1536, 540, true);
+    add_image_size('header-half', 768, 340, true);
+    add_image_size('avatar', 640, 640, true);
+    /* Tamaños de imágenes para administración */
+    add_image_size('slide-admin', 182, 80, true);
+    add_image_size('button-admin', 160, 80, true);
+    add_image_size('avatar-admin', 80, 80, true);
 
     /**
      * Enable responsive embed support.
@@ -100,25 +112,12 @@ add_action('after_setup_theme', function () {
 }, 20);
 
 /**
- * Register the theme sidebars.
- *
- * @return void
+ * Desactivando características de Gutenberg.
+ * Si las necesito, las activaré.
  */
-add_action('widgets_init', function () {
-    $config = [
-        'before_widget' => '<section class="widget %1$s %2$s">',
-        'after_widget' => '</section>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>',
-    ];
-
-    register_sidebar([
-        'name' => __('Primary', 'sage'),
-        'id' => 'sidebar-primary',
-    ] + $config);
-
-    register_sidebar([
-        'name' => __('Footer', 'sage'),
-        'id' => 'sidebar-footer',
-    ] + $config);
+add_action('wp_enqueue_scripts', function () {
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+    wp_dequeue_style('wc-block-style');
+    wp_dequeue_style('global-styles');
 });
