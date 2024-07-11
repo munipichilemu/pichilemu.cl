@@ -39,7 +39,22 @@
     }
   },
   "require": {
-    "php": ">=8.1"
+    "php": ">=8.1",
+    "blade-ui-kit/blade-icons": "^1.6",
+    "log1x/acf-composer": "^3.0",
+    "log1x/acf-phone-number": "^1.2",
+    "log1x/navi": "^3.0",
+    "log1x/poet": "^2.1",
+    "log1x/sage-directives": "^2.0",
+    "owenvoke/blade-fontawesome": "^2.6",
+    "roots/acorn": "^4.3",
+    "roots/acorn-prettify": "^1.0",
+    "wpackagist-plugin/acf-openstreetmap-field": "^1.5",
+    "wpackagist-plugin/advanced-custom-fields": "^6.3",
+    "wpackagist-plugin/advanced-custom-fields-font-awesome": "^4.0",
+    "wpackagist-plugin/cms-tree-page-view": "^1.6",
+    "wpackagist-plugin/navz-photo-gallery": "^3.0",
+    "wpackagist-plugin/post-types-order": "^2.2"
   },
   "require-dev": {
     "laravel/pint": "^1.13"
@@ -50,15 +65,38 @@
   "config": {
     "optimize-autoloader": true,
     "preferred-install": "dist",
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/installers": true
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": [
+        "wpackagist-plugin/*"
+      ]
+    }
+  ],
   "extra": {
     "acorn": {
       "providers": [
         "App\\Providers\\ThemeServiceProvider"
       ]
+    },
+    "installer-paths": {
+      "../../plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ]
     }
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+      "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
+    ]
   }
 }

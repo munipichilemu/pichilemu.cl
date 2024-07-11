@@ -33,9 +33,9 @@ export default async (app) => {
    * @see {@link https://bud.js.org/reference/bud.watch}
    */
   app
-    .setUrl('http://localhost:3000')
-    .setProxyUrl('http://example.test')
-    .watch(['resources/views', 'app']);
+    .setUrl('http://pichilemu.test:3000')
+    .setProxyUrl('http://pichilemu.test')
+    .watch(['resources/views', 'app', 'config/blade-*.php']);
 
   /**
    * Generate WordPress `theme.json`
