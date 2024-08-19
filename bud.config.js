@@ -8,6 +8,11 @@
  */
 export default async (app) => {
   /**
+   * Determine if the environment is production
+   */
+  const isProduction = process.env.NODE_ENV === 'production';
+
+  /**
    * Application assets & entrypoints
    *
    * @see {@link https://bud.js.org/reference/bud.entry}
@@ -23,19 +28,24 @@ export default async (app) => {
    *
    * @see {@link https://bud.js.org/reference/bud.setPublicPath}
    */
-  app.setPublicPath('/wp-content/themes/pichilemu2024/public/');
+  app.setPublicPath(
+    isProduction
+      ? '/nuevo/wp-content/themes/pichilemu.cl/public/'
+      : '/wp-content/themes/pichilemu2024/public/');
 
-  /**
-   * Development server settings
-   *
-   * @see {@link https://bud.js.org/reference/bud.setUrl}
-   * @see {@link https://bud.js.org/reference/bud.setProxyUrl}
-   * @see {@link https://bud.js.org/reference/bud.watch}
-   */
-  app
-    .setUrl('http://pichilemu.test:3000')
-    .setProxyUrl('http://pichilemu.test')
-    .watch(['resources/views', 'app', 'config/blade-*.php']);
+  if (!isProduction) {
+    /**
+     * Development server settings
+     *
+     * @see {@link https://bud.js.org/reference/bud.setUrl}
+     * @see {@link https://bud.js.org/reference/bud.setProxyUrl}
+     * @see {@link https://bud.js.org/reference/bud.watch}
+     */
+    app
+      .setUrl('http://pichilemu.test:3000')
+      .setProxyUrl('http://pichilemu.test')
+      .watch(['resources/views', 'app', 'config/blade-*.php']);
+  }
 
   /**
    * Generate WordPress `theme.json`
