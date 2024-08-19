@@ -17,9 +17,7 @@
       @hasposts($publications)
       @posts($publications)
       <article class="publication">
-        @php
-          $term_icon = (object) apply_filters('get_publication_type_icon', get_the_ID());
-        @endphp
+        @set($term_icon, (object) apply_filters('get_publication_type_icon', get_the_ID()))
         <x-icon name="fas-{{ $term_icon->id }}"/>
         <div>
           <h3>
@@ -27,7 +25,14 @@
           </h3>
           <div class="meta">
             <x-fas-calendar-lines/>
-            <time datetime="@published('c')">@published</time>
+            <time datetime="{{ apply_filters('publication_date_formatter', get_field('emitted_at')) }}">
+              {{ apply_filters('publication_date_formatter', get_field('emitted_at'), 'long') }}
+            </time>
+            @if(get_the_terms(get_the_ID(), 'publication_type'))
+              &middot;
+            <x-fas-tag/>
+            <span>@term('publication_type')</span>
+            @endif
           </div>
           @excerpt
         </div>
