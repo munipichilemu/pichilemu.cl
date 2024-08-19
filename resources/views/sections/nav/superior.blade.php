@@ -1,7 +1,7 @@
 <nav aria-label="Navegación superior" id="superior">
   <ul>
     <li aria-hidden="true">
-      <a href="https://pichilemu.cl">
+      <a href="{{ site_url() }}">
         <x-fak-munipmu-small/>
         Ilustre Municipalidad de Pichilemu
       </a>
