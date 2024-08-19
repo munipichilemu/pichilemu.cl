@@ -1,3 +1,5 @@
+@import "tiny-slider/dist/tiny-slider.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -48,37 +50,59 @@ header {
 }
 
 #encabezado {
+  @apply relative;
+
   #carrusel {
-    @apply container mx-auto mb-12 h-[680px] rounded-xl text-white overflow-hidden
-    shadow-2xl shadow-sea-500/75;
+    @apply container mx-auto mb-12 h-[680px] rounded-xl overflow-hidden text-white shadow-2xl shadow-sea-500/75;
 
-    li {
-      @apply relative bg-gray-200;
-      height: 680px;
+    .slide {
+      @apply bg-gray-200 h-full;
 
-      img {
-        @apply w-full h-full object-cover;
+      .slide-wrapper {
+        @apply relative h-full;
+
+        img {
+          @apply w-full h-full object-cover object-center;
+        }
+
+        .backdrop {
+          @apply absolute inset-0 bg-gradient-to-r from-black/90 to-transparent;
+        }
+
+        .content {
+          @apply absolute bottom-0 z-20 p-16 pr-[36em] space-y-4;
+
+          h3 {
+            @apply text-6xl first-line:font-bold;
+          }
+
+          p {
+            @apply text-lg;
+          }
+
+          a {
+            @apply inline-block px-4 py-2 border rounded hover:bg-white hover:text-black;
+          }
+        }
+      }
+    }
+  }
+
+  .tns-controls {
+    @apply container mx-auto absolute top-1/2 left-0 right-0 z-30
+    flex justify-between transform -translate-y-1/2;
+
+    button {
+      @apply bg-white/25 text-black/50 text-3xl px-4 py-6 transition-all
+      hover:bg-corp-500/50 hover:text-white/75 hover:scale-150
+      active:bg-corp-500/75 active:text-white/100;
+
+      &[data-controls="prev"] {
+        @apply rounded-r-full pl-0 hover:translate-x-[11px];
       }
 
-      .backdrop {
-        @apply absolute w-full h-full bg-gradient-to-r from-black/90 to-transparent;
-      }
-
-      .content {
-        @apply absolute bottom-0 z-20 p-16 pr-[36em] space-y-4;
-
-        h3 {
-          @apply text-6xl first-line:font-bold;
-        }
-
-        p {
-          @apply text-lg;
-        }
-
-        a {
-          @apply inline-block px-4 py-2 border rounded
-          hover:bg-white hover:text-black;
-        }
+      &[data-controls="next"] {
+        @apply rounded-l-full pr-0 hover:-translate-x-[11px];
       }
     }
   }

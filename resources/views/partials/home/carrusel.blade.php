@@ -2,25 +2,23 @@
 'post_type' => 'slide',
 'orderby' => 'menu_order',
 'order' => 'ASC',
-'posts_per_page' => 1,
+'posts_per_page' => -1,
 ])
 
-<ul id="carrusel" role="presentation">
+<div id="carrusel" class="tiny-slider" role="presentation">
   @posts
-  <li>
-    <span class="backdrop"></span>
-    <img alt="" src="@thumbnail('slide-home', false)">
-    <div class="content">
-      <h3>@title</h3>
-      <p>
-        @content
-      </p>
-      @hasfield('link')
-      <a href="@field('link')">
-        @field('text')
-      </a>
-      @endfield
+  <div class="slide">
+    <div class="slide-wrapper">
+      <span class="backdrop"></span>
+      <img src="@thumbnail('slide-home', false)" alt="@title">
+      <div class="content">
+        <h3>@title</h3>
+        <p>@content</p>
+        @hasfield('link')
+        <a href="@field('link')">@field('text')</a>
+        @endfield
+      </div>
     </div>
-  </li>
+  </div>
   @endposts
-</ul>
+</div>
