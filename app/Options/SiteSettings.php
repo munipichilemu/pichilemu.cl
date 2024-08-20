@@ -66,7 +66,7 @@ class SiteSettings extends Field
             ->addTab('redirections', [
                 'label' => 'Redirecciones',
             ])
-            ->addMessage('redirection_table', 'message', [
+            ->addMessage('redirection_table', 'Tabla de redirecciones', [
                 'label' => false,
                 'message' => $this->generateRedirectionsTable(),
             ]);
@@ -77,7 +77,7 @@ class SiteSettings extends Field
     private function generateRedirectionsTable(): string
     {
         $args = [
-            'post_type' => 'any',
+            'post_type' => ['page', 'post'],
             'posts_per_page' => -1,
             'orderby' => 'ID',
             'order' => 'ASC',
@@ -97,36 +97,42 @@ class SiteSettings extends Field
         $table .= '<th>Redirección</th>';
         $table .= '</tr></thead><tbody>';
 
-        foreach ($posts as $post) {
-            $edit_link = get_edit_post_link($post->ID);
-            $post_route = str_replace(home_url(), '', get_permalink($post->ID));
-            $link_field = get_field('link', $post->ID);
-            $permanent = get_field('permanent', $post->ID) ? 'Permanente' : 'Temporal';
+        if (empty($posts)) {
+            $table .= '<tr><td colspan="3">No hay redirecciones configuradas.</td></tr>';
+        } else {
+            foreach ($posts as $post) {
+                $edit_link = get_edit_post_link($post->ID);
+                $post_route = str_replace(home_url(), '', get_permalink($post->ID));
+                $link_field = get_field('link', $post->ID);
+                $link_url = is_array($link_field) && isset($link_field['url']) ? $link_field['url'] : '#';
+                $permanent = get_field('permanent', $post->ID);
+                $permanent_text = $permanent ? 'Permanente' : 'Temporal';
 
-            $table .= '<tr>';
-            $table .= sprintf(
-                '<td>
+                $table .= '<tr>';
+                $table .= sprintf(
+                    '<td>
                     <a href="%s">%s</a><br>
                     %s
                 </td>',
-                esc_url($edit_link),
-                esc_html($post->post_title),
-                esc_url($post_route)
-            );
-            $table .= sprintf(
-                '<td>
+                    esc_url($edit_link),
+                    esc_html($post->post_title),
+                    esc_url($post_route)
+                );
+                $table .= sprintf(
+                    '<td>
                     <a href="%s">%s <span class="dashicons dashicons-external" aria-hidden="true"></span></a>
                 </td>',
-                esc_url($link_field['url']),
-                esc_html($link_field['url'])
-            );
-            $table .= sprintf(
-                '<td>
+                    esc_url($link_url),
+                    esc_html($link_url)
+                );
+                $table .= sprintf(
+                    '<td>
                     <strong>%s</strong>
                 </td>',
-                $permanent
-            );
-            $table .= '</tr>';
+                    $permanent_text
+                );
+                $table .= '</tr>';
+            }
         }
 
         $table .= '</tbody></table>';
