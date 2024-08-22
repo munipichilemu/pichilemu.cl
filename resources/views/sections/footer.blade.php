@@ -21,7 +21,8 @@
             </span>
             <time content="Mo-Fr 08:00-13:00,14:00-17:20" itemprop="openingHours">
               Lunes a Viernes <br>
-              8:00 - 13:00 y 14:00 - 17:20
+              8:00 - 13:00 <br>
+              14:00 - 17:20
             </time>
           </li>
 

@@ -4,7 +4,9 @@
   @apply relative;
 
   #carrusel {
-    @apply container mx-auto mb-12 h-[680px] rounded-xl overflow-hidden text-white shadow-2xl shadow-sea-500/75;
+    @apply container mx-auto rounded-xl overflow-hidden text-white
+    h-112 sm:h-128 md:h-144 lg:h-160 xl:h-176
+    shadow-2xl shadow-corp-800/75;
 
     .slide {
       @apply bg-gray-200 h-full;
@@ -17,18 +19,22 @@
         }
 
         .backdrop {
-          @apply absolute inset-0 bg-gradient-to-r from-black/90 to-transparent;
+          @apply absolute inset-0 bg-gradient-to-r from-corp-900/90 to-corp-900/10;
         }
 
         .content {
-          @apply absolute bottom-0 z-20 p-16 pr-[36em] space-y-4;
+          @apply absolute bottom-0 z-20 space-y-4
+          p-4 md:p-8 lg:p-16
+          pr-4 md:pr-8 xl:pr-144;
 
           h3 {
-            @apply text-6xl first-line:font-bold;
+            @apply first-line:font-bold
+            text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
           }
 
           p {
-            @apply text-lg;
+            @apply hidden md:block
+            text-base lg:text-lg;
           }
 
           a {
@@ -41,7 +47,8 @@
 
   .tns-controls {
     @apply container mx-auto absolute top-1/2 left-0 right-0 z-30
-    flex justify-between transform -translate-y-1/2;
+    flex justify-between transform -translate-y-1/2
+    hidden sm:flex;
 
     button {
       @apply bg-white/25 text-black/50 text-3xl px-4 py-6 transition-all
@@ -59,30 +66,33 @@
   }
 }
 
-#tramites_servicios {
-  @apply container mx-auto my-8 grid grid-cols-5 gap-4;
+#servicios {
+  @apply container mx-auto my-8 gap-4
+  grid grid-cols-1 lg:grid-cols-5;
 
   #busqueda {
-    @apply col-span-3 flex flex-col rounded-xl overflow-hidden px-4 py-6 text-white;
-    background-image: url("../images/logos/escudo-tilt.svg"),
-    linear-gradient(to right, #157F65, #1A9F7E);
-    background-position: right bottom,
-    0 0;
-    background-repeat: no-repeat,
-    no-repeat;
-    background-size: 16rem,
-    100%;
+    @apply flex flex-col rounded-xl overflow-hidden text-white
+    px-3 py-4 sm:px-4 sm:py-6
+    col-span-full lg:col-span-3;
+
+    background-image: url("../images/logos/escudo-tilt.svg"), linear-gradient(to right, #157F65, #1A9F7E);
+    background-position: right bottom, 0 0;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 16rem, 100%;
 
     h3 {
-      @apply text-4xl mb-8;
+      @apply mb-8
+      text-2xl lg:text-4xl;
     }
 
     ul {
-      @apply grow text-xl;
+      @apply grow flex flex-wrap
+      text-xs sm:text-sm lg:text-xl;
 
       li {
-        @apply inline-block mb-6 mr-3 transition-all
-        hover:scale-105 hover:shadow-xl hover:shadow-gray-700/50;
+        @apply inline-block mb-6 transition-all
+        hover:scale-105 hover:shadow-xl hover:shadow-gray-700/50
+        mr-1 lg:mr-3;
 
         a {
           @apply rounded-lg py-2 px-3;
@@ -91,15 +101,18 @@
     }
 
     div a {
-      @apply inline-block py-3 px-4 rounded-lg border hover:bg-white hover:text-corp-700;
+      @apply inline-block rounded border
+      mt-8 sm:mt-0 px-3 py-2 sm:py-3 sm:px-4
+      hover:bg-white hover:text-corp-700;
     }
   }
 
   #importantes {
-    @apply col-span-2 grid grid-cols-2 gap-4;
+    @apply grid sm:grid-cols-2 gap-4
+    col-span-full lg:col-span-2;
 
     article {
-      @apply relative rounded-xl overflow-hidden aspect-[3/2] shadow-lg shadow-corp-900/35
+      @apply relative rounded-xl overflow-hidden shadow-lg shadow-corp-900/35
       bg-corp-900 transition-all hover:scale-105 hover:shadow-xl hover:shadow-corp-900/50;
 
       img {
@@ -107,16 +120,17 @@
       }
 
       h4 {
-        @apply absolute bottom-0 z-20 px-3 pb-2 space-y-8 text-2xl text-white;
+        @apply absolute bottom-0 z-20 px-3 pb-2 space-y-8 text-white
+        text-xl xl:text-2xl;
       }
     }
   }
 
   #tramites {
-    @apply col-span-5;
+    @apply col-span-full lg:col-span-5;
 
     ul {
-      @apply grid grid-cols-4 gap-4;
+      @apply grid grid-cols-2 md:grid-cols-4 gap-4;
     }
 
     ul li {
@@ -130,21 +144,26 @@
 }
 
 #novedades {
-  @apply container mx-auto my-12 grid grid-cols-5 gap-x-16;
+  @apply container mx-auto my-12 gap-x-16
+  grid grid-cols-1 lg:grid-cols-5;
 
   h3 {
     @apply text-4xl mb-8;
   }
 
   #noticias {
-    @apply col-span-3 py-4 space-y-6;
+    @apply py-4 space-y-6
+    col-span-full lg:col-span-3;
 
     article {
-      @apply flex gap-4 pr-4 items-center rounded-lg hover:bg-gray-100;
+      @apply flex gap-4 items-center rounded-lg hover:bg-gray-100
+      pr-0 sm:pr-4
+      flex-col sm:flex-row ;
     }
 
     img {
-      @apply w-[180px] h-[180px] flex-shrink-0 rounded-lg object-cover object-center;
+      @apply w-full sm:w-44 h-44
+      flex-shrink-0 rounded-lg object-cover object-center;
     }
 
     h4 {
@@ -164,12 +183,15 @@
     }
 
     a.more {
-      @apply inline-block py-3 px-4 border border-gray-400 rounded-lg hover:bg-gray-400 hover:text-gray-50;
+      @apply inline-block border border-gray-400 rounded hover:bg-gray-400 hover:text-gray-50
+      py-2 px-3 sm:py-3 sm:px-4;
     }
   }
 
   #publicaciones {
-    @apply col-span-2 rounded-lg space-y-2 p-4 text-white
+    @apply rounded-lg space-y-2 text-white
+    p-3 sm:p-4
+    col-span-full lg:col-span-2
     bg-gradient-to-r from-sea-500 to-sea-600;
 
     article {
@@ -193,7 +215,8 @@
     }
 
     a.more {
-      @apply inline-block !mt-9 py-3 px-4 border rounded-lg hover:bg-white hover:text-sea-600;
+      @apply inline-block !mt-9 border rounded hover:bg-white hover:text-sea-600
+      py-2 px-3 sm:py-3 sm:px-4;
     }
   }
 
@@ -205,7 +228,8 @@
 }
 
 #municipal {
-  @apply container mx-auto my-12 grid grid-cols-9 gap-6;
+  @apply container mx-auto my-12 gap-2
+  grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-9;
 
   > * {
     @apply rounded-lg overflow-hidden;
@@ -226,7 +250,8 @@
   }
 
   #turismo, #cultura, #concejo {
-    @apply col-span-3 h-80 shadow-lg;
+    @apply h-80
+    col-span-full lg:col-span-1 xl:col-span-3;
   }
 
   #turismo, #cultura, #concejo {
@@ -253,55 +278,52 @@
     }
 
     ul {
-      @apply mt-4 grid grid-cols-2 gap-4 text-center;
+      @apply mt-4 mb-3 lg:mb-0 grid grid-cols-2 gap-1 text-center;
     }
 
     a {
-      @apply px-2 py-1 border rounded hover:bg-white hover:text-black;
+      @apply border rounded tracking-tighter
+      hover:bg-white hover:text-black
+      p-3 lg:p-1
+      text-xs sm:text-sm lg:text-xs xl:text-sm;
     }
   }
 
-  #turismo {
-    @apply shadow-forest-500/40;
-  }
-
-  #cultura {
-    @apply shadow-indigo-500/40;
-  }
-
-  #concejo {
-    @apply shadow-ground-500/40;
-  }
-
   #medioambiente {
-    @apply col-span-7 h-80 relative z-20
-    grid grid-cols-subgrid text-white
+    @apply relative z-20 text-white content-end
+    h-144 sm:h-80
+    col-span-full lg:col-span-2 xl:col-span-7
+    sm:grid sm:grid-cols-2
     bg-[url('../images/sietecolores.jpeg')] bg-cover bg-no-repeat bg-center
     before:absolute before:inset-0 before:block before:z-[-5]
-    before:bg-gradient-to-r before:from-black/5 before:to-black/90
-    shadow-2xl shadow-grass-800/75;
+    before:bg-gradient-to-r before:from-black/5 before:to-black/90;
 
     .info, .links {
       @apply px-3 py-3;
     }
 
     .info {
-      @apply col-span-5 content-end;
+      @apply sm:col-span-1
+      content-end;
     }
 
     .links {
-      @apply col-span-2 py-5 content-end space-y-5 text-right;
+      @apply sm:col-span-1 py-5 content-end
+      text-center sm:text-right
+      sm:space-y-2
+      grid grid-cols-2 gap-2 sm:block
+      text-xs sm:text-base tracking-tighter;
 
       a {
-        @apply px-4 py-2 border rounded hover:bg-white hover:text-grass-800;
+        @apply inline-block px-4 py-2 border rounded hover:bg-white hover:text-grass-800;
       }
     }
   }
 
   #scam {
-    @apply col-span-2 h-80 text-center content-end px-4 py-5
+    @apply h-80 text-center content-end px-4 py-5
     bg-gradient-to-r from-sky-700 to-forest-700 text-white
-    shadow-2xl shadow-sky-800/75;
+    col-span-full lg:col-span-1 xl:col-span-2;
 
     .acreditacion {
       @apply text-9xl mb-6;
@@ -318,14 +340,15 @@
 }
 
 #sociales {
-  @apply container mx-auto my-12 rounded-lg grid grid-cols-3 gap-8;
+  @apply container mx-auto my-12 rounded-lg gap-2
+  grid grid-cols-1 lg:grid-cols-3;
 
   #redes, #galeria {
-    @apply rounded-lg overflow-hidden shadow-xl;
+    @apply h-80 rounded-lg overflow-hidden;
   }
 
   #galeria {
-    @apply relative h-80 text-white;
+    @apply relative text-white;
 
     img {
       @apply w-full h-full object-cover;
@@ -342,7 +365,7 @@
   }
 
   #redes {
-    @apply col-span-2 grid grid-cols-subgrid bg-gray-100;
+    @apply lg:col-span-2 grid grid-cols-subgrid bg-gray-100;
 
     h2 {
       @apply text-2xl;
@@ -356,7 +379,7 @@
       @apply relative z-10 content-center text-center text-3xl space-y-4
       bg-[url('../images/sociales.jpeg')] bg-cover bg-no-repeat bg-center
       before:absolute before:inset-0 before:block before:z-[-5]
-      before:bg-gradient-to-r before:from-gray-100/100 before:to-gray-200/25 before:backdrop-blur-sm;
+      before:bg-gradient-to-b lg:before:bg-gradient-to-r before:from-gray-100/100 before:to-gray-200/25 before:backdrop-blur-sm;
 
       .facebook {
         @apply text-[#1877f2]
@@ -379,14 +402,14 @@
 
 /* Estilos para la sección de eventos */
 .events-section {
-  @apply col-span-5 grid gap-6;
+  @apply col-span-full grid gap-6;
 
   h3 {
     @apply mt-6 mb-0;
   }
 
   .events-grid {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6;
+    @apply grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-2;
   }
 
   .event-card {
@@ -408,7 +431,7 @@
       }
 
       h4 {
-        @apply col-span-3 pr-2 py-1 leading-none text-2xl h-[3em];
+        @apply col-span-3 pr-2 py-1 leading-none tracking-tight h-[3em] text-xl;
       }
 
       ul {

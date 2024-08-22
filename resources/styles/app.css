@@ -42,7 +42,9 @@ a.directo {
 
 /* Layout */
 nav#superior {
-  @apply text-white bg-gray-800;
+  @apply text-white bg-gray-800
+  hidden lg:block;
+  /*TODO: Cambiar esto por presentación responsiva*/
 
   ul {
     @apply container mx-auto grid grid-flow-col gap-1 text-center;
@@ -54,19 +56,20 @@ nav#superior {
 }
 
 header {
-  @apply container mx-auto relative mt-8 flex gap-16 items-end z-50;
-  height: 180px;
+  @apply container mx-auto relative mt-8 flex gap-16 items-end z-50
+  h-24 sm:h-32 md:h-40 xl:h-48;
 
   #logo {
-    @apply block self-start;
+    @apply block mx-auto self-start;
 
     img {
-      @apply h-[280px];
+      @apply h-36 sm:h-48 md:h-60 xl:h-72;
     }
   }
 
   nav {
-    @apply flex-grow;
+    @apply flex-grow
+    hidden xl:block;
 
     ul {
       @apply container mx-auto grid grid-flow-col gap-1 text-center text-xl;
@@ -78,12 +81,41 @@ header {
   }
 }
 
+main {
+  @apply px-1;
+}
+
 footer {
-  @apply bg-corp-500 py-16 text-white;
+  @apply bg-corp-500 py-16 text-white px-1;
 
   > div {
-    @apply container mx-auto grid grid-cols-5;
+    @apply container mx-auto gap-x-1 gap-y-8
+    grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5;
   }
+
+  /* Ordenado de columnas */
+
+  #oirs {
+    @apply order-3 md:order-4 xl:order-1;
+  }
+
+  #sitemap {
+    @apply order-1 xl:order-2;
+  }
+
+  #external {
+    @apply order-2 xl:order-3;
+  }
+
+  #seguridad {
+    @apply order-4 md:order-3 xl:order-4;
+  }
+
+  #logos {
+    @apply order-last;
+  }
+
+  /* Estilos */
 
   h2 {
     @apply text-xl font-bold mb-2;
@@ -91,6 +123,10 @@ footer {
 
   a {
     @apply hover:underline;
+  }
+
+  #oirs {
+    @apply col-span-1;
   }
 
   #oirs address {
@@ -136,7 +172,8 @@ footer {
   }
 
   #logos {
-    @apply text-center text-7xl;
+    @apply text-center text-7xl
+    col-span-2 xl:col-span-1;
 
     .fa-munipmu-escudotexto {
       @apply text-9xl;
