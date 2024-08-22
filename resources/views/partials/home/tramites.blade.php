@@ -1,4 +1,4 @@
-<div id="tramites_servicios">
+<div id="servicios">
   <h2 class="sr-only">Trámites y servicios</h2>
 
   <section id="busqueda">
