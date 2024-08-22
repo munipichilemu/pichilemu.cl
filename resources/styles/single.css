@@ -1,0 +1,81 @@
+/* single.css */
+
+/* Estilos para posts individuales */
+body.single-post {
+  aside {
+    @apply container mx-auto py-16 max-w-[56rem] grid grid-cols-2 gap-8
+    border-t border-t-corp-700/25;
+
+    h3 {
+      @apply col-span-2 text-center text-3xl font-bold tracking-tighter leading-[1.05em];
+    }
+
+    .post-card {
+      @apply flex gap-4 items-center rounded-lg overflow-hidden hover:bg-gray-100;
+
+      > div {
+        @apply col-span-1;
+      }
+
+      &.prev {
+        @apply col-start-1;
+      }
+
+      &.next {
+        @apply col-start-2;
+      }
+
+      img {
+        @apply w-20 h-20 flex-shrink-0 rounded-lg object-cover object-center;
+      }
+
+      span {
+        @apply uppercase tracking-widest text-gray-500 text-xs;
+      }
+
+      h4 {
+        @apply text-lg font-bold tracking-tighter leading-[1.05em] pr-2;
+      }
+    }
+  }
+}
+
+/* Estilos para eventos individuales */
+body.single-event {
+  .event-info {
+    @apply col-span-1 my-8 py-4 space-y-6;
+
+    dl {
+      dt {
+        @apply uppercase tracking-wider text-sm;
+      }
+
+      dd {
+        @apply text-2xl font-bold;
+      }
+
+      dt, dd {
+        @apply pl-4 ml-4 border-l-8 border-corp-500;
+      }
+
+      dd + dt {
+        @apply mt-4;
+      }
+    }
+
+    .card {
+      @apply rounded-lg overflow-hidden shadow-lg;
+
+      .leaflet-map {
+        @apply !h-96;
+      }
+    }
+  }
+}
+
+/* Estilos compartidos para contenido individual */
+.single-content {
+  @apply prose prose-lg prose-li:marker:text-corp-500 max-w-4xl mx-auto pt-8 pb-24;
+
+  /* Puedes agregar más estilos específicos para el contenido individual aquí */
+}

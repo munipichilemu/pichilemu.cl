@@ -1,0 +1,161 @@
+/* pages.css */
+
+#page-content {
+  @apply container mx-auto;
+
+  .header {
+    @apply relative rounded-lg overflow-hidden shadow-2xl shadow-gray-500/75;
+
+    img {
+      @apply w-full h-[540px] object-cover object-center;
+    }
+
+    h2.entry-title {
+      @apply absolute inset-x-0 bottom-0 p-8 text-center text-6xl text-white
+      bg-gradient-to-t from-black/90 to-transparent;
+
+      .meta {
+        @apply block text-base uppercase tracking-wider;
+      }
+    }
+  }
+
+  .entry-content {
+    @apply prose prose-lg prose-li:marker:text-corp-500 max-w-4xl mx-auto pt-8 pb-24;
+  }
+}
+
+body.page {
+  .section-heading {
+    @apply text-3xl font-bold text-center tracking-tighter mb-8;
+  }
+
+  .sections-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+  }
+
+  .section-item {
+    @apply h-48 rounded-lg overflow-hidden shadow-md transition-all;
+
+    &:hover {
+      @apply scale-105;
+    }
+  }
+
+  .section-link {
+    @apply block relative w-full h-full;
+  }
+
+  .section-image {
+    @apply w-full h-full object-cover;
+  }
+
+  .section-title {
+    @apply absolute inset-x-0 bottom-0 px-3 py-8 pb-2 text-white text-xl
+    bg-gradient-to-b from-corp-800/0 to-corp-800;
+  }
+
+  .no-sections-message {
+    @apply text-gray-600;
+  }
+}
+
+body.page.alcalde {
+  .entry-content {
+    @apply text-justify;
+
+    .fecha-carta {
+      @apply uppercase text-sm tracking-wider text-gray-500;
+    }
+
+    .firma-alcalde {
+      @apply text-center leading-none text-2xl;
+
+      strong:last-child {
+        @apply uppercase text-sm tracking-wider text-gray-500;
+      }
+    }
+  }
+
+  #retrato {
+    @apply w-72 h-72 ml-6 -mr-8 mt-0 mb-4 rounded-full float-right
+    border-corp-500 border-8
+    shadow-xl;
+    shape-outside: circle();
+  }
+
+  aside {
+    @apply container mx-auto py-16 max-w-[56rem] border-t border-t-corp-700/25;
+  }
+}
+
+body.page.concejo {
+  .sections-grid {
+    @apply grid-cols-1 md:grid-cols-3;
+  }
+
+  .section-item {
+    @apply aspect-square mx-auto h-64;
+  }
+}
+
+body.page.direcciones {
+  .direcciones-container {
+    @apply mt-6;
+  }
+
+  .direcciones-list {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 list-disc list-inside;
+  }
+
+  .direcciones-item {
+    @apply leading-7 marker:text-corp-500;
+
+    a {
+      @apply hover:text-gray-900 hover:underline;
+    }
+  }
+}
+
+body.page-template-template-direccion {
+  aside {
+    @apply col-span-1 mt-8 pt-4;
+  }
+
+  .card {
+    @apply rounded-lg overflow-hidden shadow-lg;
+
+    .card-header {
+      @apply relative;
+
+      img {
+        @apply w-full h-auto object-cover;
+      }
+
+      h3 {
+        @apply absolute inset-x-0 bottom-0 px-3 pb-2 pt-8 text-white text-2xl
+        bg-gradient-to-t from-corp-500 to-transparent;
+      }
+    }
+
+    .card-body {
+      @apply p-3 bg-corp-500 text-white;
+
+      dt {
+        @apply uppercase tracking-wider text-xs;
+      }
+
+      dd {
+        @apply text-lg;
+      }
+
+      dd + dt {
+        @apply mt-4;
+      }
+
+      a {
+        @apply hover:underline;
+      }
+    }
+  }
+}
