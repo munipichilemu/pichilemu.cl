@@ -1,4 +1,4 @@
-<nav id="external">
+<nav id="external" aria-label="Otros vínculos municipales">
   <h2 class="sr-only">Otros vínculos municipales</h2>
 
   <ul>

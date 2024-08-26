@@ -1,4 +1,4 @@
-<nav id="sitemap">
+<nav id="sitemap" aria-label="Mapa del sitio">
   <h2>Mapa del sitio</h2>
 
   <ul>
