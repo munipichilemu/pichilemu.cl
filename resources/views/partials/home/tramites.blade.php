@@ -60,7 +60,7 @@
     <ul>
       @posts
       <li>
-        <a href="@field('link')"><img alt="" src="@thumbnail('button-home', false)"></a>
+        <a href="@field('link')"><img alt="@title" src="@thumbnail('button-home', false)"></a>
       </li>
       @endposts
     </ul>
