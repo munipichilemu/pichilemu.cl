@@ -78,7 +78,9 @@ body.page.alcalde {
   }
 
   #retrato {
-    @apply w-72 h-72 ml-6 -mr-8 mt-0 mb-4 rounded-full float-right
+    @apply ml-6 mt-0 mb-4 rounded-full float-right
+    mr-0 lg:-mr-8
+    w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72
     border-corp-500 border-8
     shadow-xl;
     shape-outside: circle();
