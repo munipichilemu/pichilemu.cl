@@ -121,8 +121,13 @@ body.page.direcciones {
 }
 
 body.page-template-template-direccion {
+  .entry-content {
+    @apply !pb-8 xl:pb-24;
+  }
+
   aside {
-    @apply col-span-1 mt-8 pt-4;
+    @apply max-w-96 mx-auto col-span-1
+    pb-24 xl:pb-0 xl:mt-8 xl:pt-4;
   }
 
   .card {
@@ -157,7 +162,7 @@ body.page-template-template-direccion {
       }
 
       a {
-        @apply hover:underline;
+        @apply hover:underline break-all;
       }
     }
   }
