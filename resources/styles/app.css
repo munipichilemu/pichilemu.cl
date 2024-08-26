@@ -56,7 +56,7 @@ nav#superior {
 }
 
 header {
-  @apply container mx-auto relative mt-8 flex gap-16 items-end z-50
+  @apply container mx-auto px-1 relative mt-8 flex gap-4 items-end z-50
   h-24 sm:h-32 md:h-40 xl:h-48;
 
   #logo {
@@ -72,10 +72,10 @@ header {
     hidden xl:block;
 
     ul {
-      @apply container mx-auto grid grid-flow-col gap-1 text-center text-xl;
+      @apply container mx-auto grid grid-flow-col text-center items-end text-xl;
 
       a {
-        @apply inline-block mb-1 px-4 py-2 border-b-8 border-transparent hover:border-corp-500;
+        @apply inline-block tracking-tighter leading-5 mb-1 px-4 py-2 border-b-8 border-transparent hover:border-corp-500;
       }
     }
   }
