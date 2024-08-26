@@ -86,7 +86,7 @@ main {
 }
 
 footer {
-  @apply bg-corp-500 py-16 text-white px-1;
+  @apply bg-corp-600 py-16 text-white px-1;
 
   > div {
     @apply container mx-auto gap-x-1 gap-y-8
