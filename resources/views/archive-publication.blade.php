@@ -4,7 +4,7 @@
   <div id="page-content" @postclass>
     <div class="header">
       <img src="{{ get_field('default_thumbnail', 'option')['sizes']['header-pages'] }}" alt="@title"
-           role="presentation">
+           role="img">
 
       <h2 class="entry-title">
         <a href="{{ site_url('/publicaciones') }}">

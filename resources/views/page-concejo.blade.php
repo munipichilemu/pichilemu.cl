@@ -20,11 +20,11 @@
         <span class="section-link">
           @if(get_field('portrait'))
             @set($retrato, get_field('portrait')['sizes']['avatar'])
-            <img src="{{ $retrato }}" alt="@title" class="section-image" role="presentation">
+            <img src="{{ $retrato }}" alt="@title" class="section-image" role="img">
           @else
             <img src="{{ get_field('default_thumbnail', 'option')['sizes']['avatar'] }}" alt="@title"
                  class="section-image"
-                 role="presentation">
+                 role="img">
           @endif
 
           <h3 class="section-title">@title</h3>

@@ -14,10 +14,10 @@
       @endphp
       <div class="post-card prev">
         @if(has_post_thumbnail($prev))
-          <img src="@thumbnail($prev, 'thumbnail', false)" alt="@title" role="presentation">
+          <img src="@thumbnail($prev, 'thumbnail', false)" alt="@title" role="img">
         @else
           <img src="{{ get_field('default_thumbnail', 'option')['sizes']['thumbnail'] }}" alt="@title"
-               role="presentation">
+               role="img">
         @endif
         <div>
           <span>Anterior</span>
@@ -34,10 +34,10 @@
       @endphp
       <div class="post-card next">
         @if(has_post_thumbnail($next))
-          <img src="@thumbnail($next, 'thumbnail', false)" alt="@title" role="presentation">
+          <img src="@thumbnail($next, 'thumbnail', false)" alt="@title" role="img">
         @else
           <img src="{{ get_field('default_thumbnail', 'option')['sizes']['thumbnail'] }}" alt="@title"
-               role="presentation">
+               role="img">
         @endif
         <div>
           <span>Siguiente</span>

@@ -4,10 +4,10 @@
   <article id="page-content" @postclass>
     <div class="header" role="heading">
       @if(has_post_thumbnail())
-        <img src="@thumbnail('header-pages', false)" alt="@title" role="presentation">
+        <img src="@thumbnail('header-pages', false)" alt="@title" role="img">
       @else
         <img src="{{ get_field('default_thumbnail', 'option')['sizes']['header-pages'] }}" alt="@title"
-             role="presentation">
+             role="img">
       @endif
       <h2 class="entry-title">
         <a href="@permalink">
@@ -40,11 +40,11 @@
       <li class="section-item">
         <a href="@permalink" class="section-link">
           @if(has_post_thumbnail())
-            <img src="@thumbnail('header-half', false)" alt="@title" class="section-image" role="presentation">
+            <img src="@thumbnail('header-half', false)" alt="@title" class="section-image" role="img">
           @else
             <img src="{{ get_field('default_thumbnail', 'option')['sizes']['header-half'] }}" alt="@title"
                  class="section-image"
-                 role="presentation">
+                 role="img">
           @endif
 
           <h3 class="section-title">@title</h3>

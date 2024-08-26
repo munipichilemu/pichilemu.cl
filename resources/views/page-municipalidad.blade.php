@@ -19,11 +19,11 @@
       <li class="section-item">
         <a href="@permalink" class="section-link">
           @if(has_post_thumbnail())
-            <img src="@thumbnail('header-half', false)" alt="@title" class="section-image" role="presentation">
+            <img src="@thumbnail('header-half', false)" alt="@title" class="section-image" role="img">
           @else
             <img src="{{ get_field('default_thumbnail', 'option')['sizes']['header-half'] }}" alt="@title"
                  class="section-image"
-                 role="presentation">
+                 role="img">
           @endif
 
           <h3 class="section-title">@title</h3>

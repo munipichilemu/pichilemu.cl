@@ -4,10 +4,10 @@
   <div id="page-content" @postclass>
     <div class="header">
       @if(has_post_thumbnail())
-        <img src="@thumbnail('header-pages', false)" alt="@title" role="presentation">
+        <img src="@thumbnail('header-pages', false)" alt="@title" role="img">
       @else
         <img src="{{ get_field('default_thumbnail', 'option')['sizes']['header-pages'] }}" alt="@title"
-             role="presentation">
+             role="img">
       @endif
 
       <h2 class="entry-title">
@@ -22,10 +22,10 @@
       @posts($news)
       <article class="news">
         @if(has_post_thumbnail())
-          <img src="@thumbnail('avatar', false)" alt="@title" role="presentation">
+          <img src="@thumbnail('avatar', false)" alt="@title" role="img">
         @else
           <img src="{{ get_field('default_thumbnail', 'option')['sizes']['avatar'] }}" alt="@title"
-               role="presentation">
+               role="img">
         @endif
         <div>
           <h3>
