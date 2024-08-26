@@ -15,7 +15,7 @@
         <h3>@title</h3>
         <p>@content</p>
         @hasfield('link')
-        <a href="@field('link')">@field('text')</a>
+        <a href="@field('link')" tabindex="-1">@field('text')</a>
         @endfield
       </div>
     </div>
