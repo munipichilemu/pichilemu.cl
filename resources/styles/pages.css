@@ -93,11 +93,12 @@ body.page.alcalde {
 
 body.page.concejo {
   .sections-grid {
-    @apply grid-cols-1 md:grid-cols-3;
+    @apply grid-cols-2 lg:grid-cols-3;
   }
 
   .section-item {
-    @apply aspect-square mx-auto h-64;
+    @apply aspect-square mx-auto
+    h-48 sm:h-64;
   }
 }
 
