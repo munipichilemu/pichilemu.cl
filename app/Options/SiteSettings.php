@@ -69,6 +69,14 @@ class SiteSettings extends Field
             ->addMessage('redirection_table', 'Tabla de redirecciones', [
                 'label' => false,
                 'message' => $this->generateRedirectionsTable(),
+            ])
+            /* Páginas vacías */
+            ->addTab('empty_pages', [
+                'label' => 'Páginas vacías',
+            ])
+            ->addMessage('empty_pages', 'Páginas vacías', [
+                'label' => false,
+                'message' => $this->generateEmptyPagesTable(),
             ]);
 
         return $siteSettings->build();
@@ -131,6 +139,74 @@ class SiteSettings extends Field
                 </td>',
                     $permanent_text
                 );
+                $table .= '</tr>';
+            }
+        }
+
+        $table .= '</tbody></table>';
+
+        return $table;
+    }
+
+    private function generateEmptyPagesTable(): string
+    {
+        $args = [
+            'post_type' => 'page',
+            'posts_per_page' => -1,
+            'orderby' => 'ID',
+            'order' => 'ASC',
+        ];
+        $pages = get_posts($args);
+
+        $empty_pages = [];
+
+        foreach ($pages as $page) {
+            $content = get_post_field('post_content', $page->ID);
+            $stripped_content = strip_tags($content);
+
+            if (empty(trim($stripped_content))) {
+                $template = get_page_template_slug($page->ID);
+                $template = empty($template) ? 'Default' : basename($template);
+
+                $empty_pages[] = [
+                    'id' => $page->ID,
+                    'title' => $page->post_title,
+                    'edit_link' => get_edit_post_link($page->ID),
+                    'url' => get_permalink($page->ID),
+                    'template' => $template,
+                ];
+            }
+        }
+
+        // Ordenar las páginas vacías por plantilla
+        usort($empty_pages, function ($a, $b) {
+            return strcmp($a['template'], $b['template']);
+        });
+
+        $table = '<table class="widefat"><thead style="background-color: #f8f9fa;"><tr>';
+        $table .= '<th>ID</th>';
+        $table .= '<th>Título</th>';
+        $table .= '<th>URL</th>';
+        $table .= '<th>Plantilla</th>';
+        $table .= '</tr></thead><tbody>';
+
+        if (empty($empty_pages)) {
+            $table .= '<tr><td colspan="4">No hay páginas con contenido vacío.</td></tr>';
+        } else {
+            foreach ($empty_pages as $page) {
+                $table .= '<tr>';
+                $table .= sprintf('<td>%d</td>', $page['id']);
+                $table .= sprintf(
+                    '<td><a href="%s">%s</a></td>',
+                    esc_url($page['edit_link']),
+                    esc_html($page['title'])
+                );
+                $table .= sprintf(
+                    '<td><a href="%s" target="_blank">%s</a></td>',
+                    esc_url($page['url']),
+                    esc_url(str_replace(home_url(), '', $page['url']))
+                );
+                $table .= sprintf('<td>%s</td>', esc_html($page['template']));
                 $table .= '</tr>';
             }
         }
