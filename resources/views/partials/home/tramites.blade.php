@@ -15,7 +15,7 @@
     <ul>
       @posts
       <li>
-        <a href="@field('link')" style="background-color: @field('color');">
+        <a href="@field('link')" style="background-color: @field('color'); color: @field('text_color')">
           <x-icon name="fas-{{ get_field('icon')->id }}"/>
           @title
         </a>
