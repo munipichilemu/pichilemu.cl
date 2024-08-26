@@ -16,7 +16,7 @@ domReady(async () => {
     autoplayButtonOutput: false,
     mouseDrag: true,
     mode: 'gallery',
-    speed: 1000,
+    speed: 3000,
     autoplayHoverPause: true,
   });
 });
