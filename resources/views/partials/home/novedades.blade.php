@@ -14,10 +14,10 @@
     @posts
     <article>
       @if(has_post_thumbnail())
-        <img src="@thumbnail('avatar', false)" alt="@title" role="presentation">
+        <img src="@thumbnail('avatar', false)" alt="@title" role="img">
       @else
         <img src="{{ get_field('default_thumbnail', 'option')['sizes']['avatar'] }}" alt="@title"
-             role="presentation">
+             role="img">
       @endif
       <div>
         <h4>
