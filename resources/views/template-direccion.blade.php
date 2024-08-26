@@ -19,8 +19,8 @@ Template Name: Dirección Municipal
       </h2>
     </div>
 
-    <div class="grid grid-cols-4 gap-4 px-4">
-      <div class="col-span-3 entry-content">
+    <div class="grid xl:grid-cols-4 gap-4 px-4">
+      <div class="col-span-full xl:col-span-3 entry-content">
         @content
       </div>
       <aside>
