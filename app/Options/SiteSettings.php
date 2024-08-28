@@ -168,6 +168,10 @@ class SiteSettings extends Field
                 $template = get_page_template_slug($page->ID);
                 $template = empty($template) ? 'Default' : basename($template);
 
+                if ($template === 'template-redirect.blade.php') {
+                    continue;
+                }
+
                 $empty_pages[] = [
                     'id' => $page->ID,
                     'title' => $page->post_title,
