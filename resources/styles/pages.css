@@ -7,11 +7,12 @@
     @apply relative rounded-lg overflow-hidden shadow-2xl shadow-gray-500/75;
 
     img {
-      @apply w-full h-[540px] object-cover object-center;
+      @apply w-full h-128 object-cover object-center;
     }
 
     h2.entry-title {
-      @apply absolute inset-x-0 bottom-0 p-8 text-center text-6xl text-white
+      @apply absolute inset-x-0 bottom-0 px-12 py-8 text-center text-white
+      text-4xl sm:text-5xl lg:text-6xl
       bg-gradient-to-t from-black/90 to-transparent;
 
       .meta {
