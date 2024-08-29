@@ -6,10 +6,13 @@ body.page.noticias {
     @apply mt-8 space-y-6;
 
     article.news {
-      @apply flex gap-4 pr-4 items-center rounded-lg hover:bg-gray-100;
+      @apply flex gap-4 pr-4 items-center rounded-lg hover:bg-gray-100
+      pr-0 sm:pr-4
+      flex-col sm:flex-row;
 
       img {
-        @apply w-[180px] h-[180px] flex-shrink-0 rounded-lg object-cover object-center;
+        @apply w-full sm:w-44 h-44
+        flex-shrink-0 rounded-lg object-cover object-center;
       }
 
       h3 {
