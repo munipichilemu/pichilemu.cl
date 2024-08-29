@@ -151,7 +151,7 @@ footer {
 
   #seguridad {
     .linea-1450 {
-      @apply text-7xl tracking-tighter font-black;
+      @apply text-5xl sm:text-6xl tracking-tighter font-black;
 
       a {
         @apply -ml-4 px-3 rounded-lg hover:bg-white hover:text-corp-500 hover:no-underline;
