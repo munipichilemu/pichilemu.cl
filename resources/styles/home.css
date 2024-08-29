@@ -87,7 +87,7 @@
     }
 
     ul {
-      @apply grow flex flex-wrap
+      @apply grow flex flex-wrap items-start gap-0 content-start
       text-xs sm:text-sm lg:text-xl;
 
       li {
