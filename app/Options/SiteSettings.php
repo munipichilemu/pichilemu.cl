@@ -77,6 +77,14 @@ class SiteSettings extends Field
             ->addMessage('empty_pages', 'Páginas vacías', [
                 'label' => false,
                 'message' => $this->generateEmptyPagesTable(),
+            ])
+            /* Páginas sin imagen destacada */
+            ->addTab('pages_without_image', [
+                'label' => 'Páginas sin imagen destacada',
+            ])
+            ->addMessage('pages_without_image', 'Páginas sin imagen destacada', [
+                'label' => false,
+                'message' => $this->generatePagesWithoutFeaturedImageTable(),
             ]);
 
         return $siteSettings->build();
@@ -201,7 +209,76 @@ class SiteSettings extends Field
                 $table .= '<tr>';
                 $table .= sprintf('<td>%d</td>', $page['id']);
                 $table .= sprintf(
-                    '<td><a href="%s">%s</a></td>',
+                    '<td><a href="%s">%s <span class="dashicons dashicons-edit" aria-hidden="true"></span></a></td>',
+                    esc_url($page['edit_link']),
+                    esc_html($page['title'])
+                );
+                $table .= sprintf(
+                    '<td><a href="%s" target="_blank">%s</a></td>',
+                    esc_url($page['url']),
+                    esc_url(str_replace(home_url(), '', $page['url']))
+                );
+                $table .= sprintf('<td>%s</td>', esc_html($page['template']));
+                $table .= '</tr>';
+            }
+        }
+
+        $table .= '</tbody></table>';
+
+        return $table;
+    }
+
+    private function generatePagesWithoutFeaturedImageTable(): string
+    {
+        $args = [
+            'post_type' => 'page',
+            'posts_per_page' => -1,
+            'orderby' => 'ID',
+            'order' => 'ASC',
+        ];
+        $pages = get_posts($args);
+
+        $pages_without_image = [];
+
+        foreach ($pages as $page) {
+            if (! has_post_thumbnail($page->ID)) {
+                $template = get_page_template_slug($page->ID);
+                $template = empty($template) ? 'Default' : basename($template);
+
+                if ($template !== 'Default') {
+                    continue;
+                }
+
+                $pages_without_image[] = [
+                    'id' => $page->ID,
+                    'title' => $page->post_title,
+                    'edit_link' => get_edit_post_link($page->ID),
+                    'url' => get_permalink($page->ID),
+                    'template' => $template,
+                ];
+            }
+        }
+
+        // Ordenar las páginas por plantilla
+        usort($pages_without_image, function ($a, $b) {
+            return strcmp($a['template'], $b['template']);
+        });
+
+        $table = '<table class="widefat"><thead style="background-color: #f8f9fa;"><tr>';
+        $table .= '<th>ID</th>';
+        $table .= '<th>Título</th>';
+        $table .= '<th>URL</th>';
+        $table .= '<th>Plantilla</th>';
+        $table .= '</tr></thead><tbody>';
+
+        if (empty($pages_without_image)) {
+            $table .= '<tr><td colspan="4">Todas las páginas tienen una imagen destacada configurada.</td></tr>';
+        } else {
+            foreach ($pages_without_image as $page) {
+                $table .= '<tr>';
+                $table .= sprintf('<td>%d</td>', $page['id']);
+                $table .= sprintf(
+                    '<td><a href="%s">%s  <span class="dashicons dashicons-edit" aria-hidden="true"></span></a></td>',
                     esc_url($page['edit_link']),
                     esc_html($page['title'])
                 );
