@@ -26,15 +26,15 @@ body.single-post {
       }
 
       img {
-        @apply w-20 h-20 flex-shrink-0 rounded-lg object-cover object-center;
+        @apply w-20 h-20 flex-shrink-0 rounded-lg object-cover object-center hidden sm:block;
       }
 
       span {
-        @apply uppercase tracking-widest text-gray-500 text-xs;
+        @apply uppercase tracking-widest text-gray-500 text-xs pl-2 sm:pl-0;
       }
 
       h4 {
-        @apply text-lg font-bold tracking-tighter leading-[1.05em] pr-2;
+        @apply text-lg font-bold tracking-tighter leading-[1.05em] pl-2 sm:pl-0 pr-2;
       }
     }
   }
@@ -42,8 +42,17 @@ body.single-post {
 
 /* Estilos para eventos individuales */
 body.single-event {
+  .entry-content {
+    @apply col-span-full lg:col-span-3
+    order-2 lg:order-1
+    !pt-0 lg:!pt-4;
+  }
+
   .event-info {
-    @apply col-span-1 my-8 py-4 space-y-6;
+    @apply col-span-full lg:col-span-1
+    order-1 lg:order-2
+    mt-8 lg:my-8 lg:py-4
+    space-y-6;
 
     dl {
       dt {

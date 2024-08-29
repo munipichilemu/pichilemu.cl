@@ -17,17 +17,17 @@
       </h2>
     </div>
 
-    <div class="grid grid-cols-4 gap-4 px-4">
-      <div class="col-span-3 entry-content">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 px-4">
+      <div class="entry-content">
         @content
       </div>
 
       <div class="event-info">
-        <div class="card">
+        {{--<div class="card">
           @hasfield('place_location')
           @field('place_location')
           @endfield
-        </div>
+        </div>--}}
 
         <dl>
           @hasfield('duration_date')
