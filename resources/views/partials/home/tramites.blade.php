@@ -11,6 +11,7 @@
     'post_type' => 'pill',
     'orderby' => 'menu_order',
     'order' => 'ASC',
+    'posts_per_page' => -1,
     ])
     <ul>
       @posts
