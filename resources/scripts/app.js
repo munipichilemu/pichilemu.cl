@@ -6,7 +6,7 @@ import {tns} from 'tiny-slider/src/tiny-slider';
  */
 domReady(async () => {
   const slider = tns({
-    container: '#carrusel',
+    container: 'body.home #carrusel',
     items: 1,
     slideBy: 'page',
     autoplay: true,
