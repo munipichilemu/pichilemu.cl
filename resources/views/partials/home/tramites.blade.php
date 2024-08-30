@@ -25,7 +25,7 @@
     </ul>
 
     <div>
-      <a href="/tramites">Ver todos los servicios y trámites</a>
+      <a href="{{ site_url('/servicios') }}">Ver todos los servicios y trámites</a>
     </div>
   </section>
 
