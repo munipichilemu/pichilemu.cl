@@ -19,7 +19,7 @@
         }
 
         .backdrop {
-          @apply absolute inset-0 bg-gradient-to-r from-corp-900/90 to-corp-900/10;
+          @apply absolute inset-0 bg-gradient-to-t from-corp-900/90 to-corp-900/10;
         }
 
         .content {
