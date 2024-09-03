@@ -69,7 +69,7 @@ add_action('after_setup_theme', function () {
      */
     add_theme_support('post-thumbnails');
     /* Tamaños de imágenes */
-    add_image_size('slide-home', 1536, 680, true);
+    add_image_size('slide-home', 1920, 1280, true);
     add_image_size('relevant-home', 300, 200, true);
     add_image_size('button-home', 380, 190, true);
     add_image_size('event-home', 480, 640, true);
