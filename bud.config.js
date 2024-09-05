@@ -30,7 +30,7 @@ export default async (app) => {
    */
   app.setPublicPath(
     isProduction
-      ? '/nuevo/wp-content/themes/pichilemu.cl/public/'
+      ? '/wp-content/themes/pichilemu.cl/public/'
       : '/wp-content/themes/pichilemu2024/public/');
 
   if (!isProduction) {
