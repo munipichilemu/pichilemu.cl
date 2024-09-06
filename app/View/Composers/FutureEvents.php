@@ -40,7 +40,7 @@ class FutureEvents extends Composer
                 [
                     'key' => 'start_date',
                     'value' => date('Ymd'),
-                    'compare' => '>=',
+                    /*'compare' => '>=',*/
                     'type' => 'DATE',
                 ],
             ],
