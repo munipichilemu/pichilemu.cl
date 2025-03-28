@@ -55,6 +55,7 @@ class Event extends Field
                 'center_lng' => -72.0043945,
                 'zoom' => 15,
                 'allow_map_layers' => 0,
+                'return_format' => 'leaflet',
             ]);
 
         return $event->build();
