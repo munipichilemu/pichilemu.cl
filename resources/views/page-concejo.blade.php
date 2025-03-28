@@ -27,7 +27,25 @@
                  role="img">
           @endif
 
-          <h3 class="section-title">@title</h3>
+          <div class="info">
+            <h3>@title</h3>
+            <p class="affiliation">@field('political_party')</p>
+            <ul>
+              @if(get_field('email'))
+                <li>
+                  <x-fas-envelope/>
+                  <a href="mailto:@field('email')">@field('email')</a>
+                </li>
+              @endif
+
+              @if(get_field('phone'))
+                <li>
+                  <x-fas-phone/>
+                  <a href="tel:@field('phone')">@field('phone')</a>
+                </li>
+              @endif
+            </ul>
+          </div>
         </span>
       </li>
       @endposts
