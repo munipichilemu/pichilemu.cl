@@ -27,6 +27,7 @@
   "dependencies": {
     "@awesome.me/kit-75c104940c": "^1.0.34",
     "@fortawesome/fontawesome-pro": "^6.6.0",
+    "caniuse-lite": "^1.0.30001707",
     "tiny-slider": "^2.9.4"
   }
 }
