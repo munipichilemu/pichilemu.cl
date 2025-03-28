@@ -15,7 +15,7 @@
       <a href="https://www.instagram.com/pichilemu.turismo/">Departamento de Turismo</a>
     </li>
     <li>
-      <a href="https://www.instagram.com/pichilemu.turismo/">Oficina de la Cultura</a>
+      <a href="https://www.instagram.com/centroculturalagustinross/">Oficina de la Cultura</a>
     </li>
     <li>
       <a href="#insico">Portal de Gestión Municipal</a>
