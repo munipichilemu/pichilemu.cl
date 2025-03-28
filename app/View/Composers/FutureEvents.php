@@ -35,15 +35,15 @@ class FutureEvents extends Composer
             'posts_per_page' => 4,
             'meta_key' => 'start_date',
             'orderby' => 'meta_value_num',
-            'order' => 'ASC',
-            'meta_query' => [
+            'order' => 'DESC',
+            /*'meta_query' => [
                 [
                     'key' => 'start_date',
                     'value' => date('Ymd'),
-                    /*'compare' => '>=',*/
+                    'compare' => '>=',
                     'type' => 'DATE',
                 ],
-            ],
+            ],*/
         ];
 
         return new WP_Query($args);
